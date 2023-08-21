@@ -80,9 +80,8 @@ class Test:
                            'name': ['Alfred', 'Batman', ''],
                            'toy': [None, 'Batmobile', 'Joker']})
         print(df)
-        print(df['born'].isna)
-        # print(df[df['born'].isna])
-        # print(df[df['born']].isna)
+        print(df['name'].isna())
+        print(df[df['name'].isna()])
 
 
 if __name__ == '__main__':
