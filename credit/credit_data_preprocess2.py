@@ -79,5 +79,7 @@ def test():
     print(df['name'].isna)
     print(df[df['name'].isna])
 
+if __name__ == '__main__':
+    debtRatioAboutIncome()
 
 
