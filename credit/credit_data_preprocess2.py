@@ -55,9 +55,11 @@ def debtRatioAboutIncome():
     val1 = []
     val2 = []
     for i in perc1:
-        val1.append(np.percentile(df_not_mis_inc['DebtRatio'], i))
+        val1.append(np.percentile(df_not_mis_inc['DebtRatio'], i)) # 收入空且负债比率高于99%的人的经验曲线
+        print(i,df_not_mis_inc['DebtRatio'],val1)
     for i in perc2:
-        val2.append(np.percentile(df_mis_inc['DebtRatio'], i))
+        val2.append(np.percentile(df_mis_inc['DebtRatio'], i)) # 无收入，负债比例从0到90的人的经验曲线
+        print(i,df_mis_inc['DebtRatio'],val2)
     plt.plot(perc1, val1)
     plt.show()
     plt.plot(perc2, val2)
@@ -76,8 +78,12 @@ def test():
          'name': ['Alfred', 'Batman', ''],
          'toy': [None, 'Batmobile', 'Joker']})
     print(df)
-    print(df['name'].isna)
-    print(df[df['name'].isna])
+    print(df['name'].isna())
+    print(df[df['name'].isna()])
+
+if __name__ == '__main__':
+    debtRatioAboutIncome()
+    
 
 if __name__ == '__main__':
     debtRatioAboutIncome()
