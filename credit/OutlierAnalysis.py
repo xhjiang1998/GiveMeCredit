@@ -64,10 +64,10 @@ def outilerprocess(variable,data):
     perc = [97.5,98,98.5,99,99.5,100]
     val = []
     for i in perc:
-    val.append(np.percentile(df['RevolvingUtilizationOfUnsecuredLines'],i ))
-    ax = plt.subplot(3,2,2)
-    ax.set_title(varNames[0])
-    plt.plot(perc, val, 'go - ', linewidth=2, markersize=12)
+        val.append(np.percentile(df['RevolvingUtilizationOfUnsecuredLines'],i ))
+        ax = plt.subplot(3,2,2)
+        ax.set_title(varNames[0])
+        plt.plot(perc, val, 'go - ', linewidth=2, markersize=12)
     ax = plt.subplot(3,2,3)
     ax.set_title(varNames[1])
     outilerprocess(varNames[1], data = df)
