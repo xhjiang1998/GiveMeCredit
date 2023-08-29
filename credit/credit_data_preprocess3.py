@@ -3,6 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 from statsmodels.distributions.empirical_distribution import ECDF
+from credit_data_preprocess2 import visualizeECDF
+
 
 
 def read_data():
