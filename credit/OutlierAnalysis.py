@@ -17,23 +17,10 @@ def load_data():
 
 # 利用上下分位数计算正常值范围，统计异常特征值的数量
 def outlierAnalysis():
-    df=pd.read_csv("cs-training.csv")
-    df1=pd.read_csv("cs-training.csv")
-    cols = df1.columns
+    df,df1,cols=load_data()
     np.set_printoptions(suppress=True)
     pd.set_option('display.float_format', lambda x: '%.2f' % x)
-
     for i in cols:
-        # # %%
-        # df = pd.read_csv("cs-training.csv")
-        # df_25=np.percentile(df['age'],25)
-        # df_75=np.percentile(df['age'],75)
-        # sub=np.subtract(df_25,df_75)
-        # print(25-1.5*np.subtract(*np.percentile(df['age'], [75, 25])))
-        # # %%
-        # a=1e+3
-        # print(a)
-        # # %%
         Low_Bound=((np.percentile(df[i],25))- 1.5*np.subtract(*np.percentile(df[i],[75,25])))
         Upp_Bound = ((np.percentile(df[i], 75)) + 1.5 * np.subtract(*np.percentile(df[i], [75, 25])))
         df1[i] = df[i].apply(lambda x: 1 if (x < Low_Bound or x > Upp_Bound) else 0) # 0就是正常值范围内的
@@ -47,6 +34,7 @@ def value_count():
     print(df['NumberOfTime30-59DaysPastDueNotWorse'].value_counts())
     print(df['NumberOfTimes90DaysLate'].value_counts())
     print(df['NumberOfTime60-89DaysPastDueNotWorse'].value_counts())
+
     # 将部分明显的偏差正常的值纠正
     df.loc[df['NumberOfTimes90DaysLate']>20,'NumberOfTimes90DaysLate']=20
     df.loc[df['NumberOfTime60-89DaysPastDueNotWorse']>20,'NumberOfTime60-89DaysPastDueNotWorse']=20
@@ -88,17 +76,21 @@ def outilerprocess():
     ax = plt.subplot(3,2,4)
     ax.set_title(varNames[1])
     plt.plot(perc, val2,'go-', linewidth=2, markersize=12)
-    
-    ax = plt.subplot(3,2,5)
+
+    # Full distribution vs top 2.5 percentile distribution
+    ax = plt.subplot(3,2,5) # 3行2列第5个
     ax.set_title(varNames[2])
-    visualizeECDF(varNames[2], data = df)
-    perc = [10,20,30,40,99.5,100]
+    # visualizeECDF(varNames[2], data = df[df[varNames[2]].notnull()])
+    visualizeECDF(varNames[2], data = df) # 描绘MonthlyIncome的经验分布函数
+    perc = [97.5,98,98.5,99,99.5,100]
     val3 = []
     for i in perc:
-        val3.append(np.percentile(df['MonthlyIncome'],i ))
+        # val3.append(np.percentile(df['MonthlyIncome'],i )) # 这里对于高小数位会直接取值nan
+        val3.append(np.nanpercentile(df1['MonthlyIncome'],i ))
     ax = plt.subplot(3,2,6)
     ax.set_title(varNames[2])
     plt.plot(perc, val3, 'go-', linewidth=2, markersize=12)
+    plt.show()
 
 if __name__ == '__main__':
-    outilerprocess()
+    value_count()

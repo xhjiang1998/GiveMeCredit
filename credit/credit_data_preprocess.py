@@ -9,6 +9,7 @@ class Test:
     df_mis_inc = []
     varNames = []
 
+    # 数据加载与特征返回
     def read_data(self):
         np.set_printoptions(edgeitems=10)
         np.core.arrayprint._line_width = 180
@@ -31,16 +32,17 @@ class Test:
         varNames = ['RevolvingUtilizationOfUnsecuredLines', 'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio',
                     'NumberOfOpenCreditLinesAndLoans', 'NumberOfTimes90DaysLate', 'NumberRealEstateLoansOrLines',
                     'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
-
         return df_mis_inc, df_not_mis_inc, varNames
 
+    # 可视化
     def visualizeECDF(self, variable, data):
-        df = data[:]  # 入参是一个向量。故[:]： for a (say) NumPy array, it will create a new view to the same data.
+        df = data[:]  # 复制
         ecdf = ECDF(df[variable])
         x = np.linspace(min(df[variable]), np.percentile(df[variable], 99.9))
         y = ecdf(x)
         plt.step(x, y)
 
+    # 债务数据分布
     def debitRatio(self):
         df = pd.read_csv("cs-training.csv")
         perc = range(81)
@@ -50,6 +52,7 @@ class Test:
             val.append(np.percentile(df['DebtRatio'], i))
         plt.plot(perc, val, 'go-', linewidth=2, markersize=12)
 
+    # 债务比关于收入的经验函数分布
     def debtRatioAboutIncome(self):
         df = pd.read_csv("cs-training.csv")
         df_not_mis_inc = df[df['MonthlyIncome'].notna()]

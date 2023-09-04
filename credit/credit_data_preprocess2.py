@@ -33,8 +33,10 @@ def read_data():
 def visualizeECDF(variable, data):
     df = data[:]  # 入参是一个向量。故[:]： for a (say) NumPy array, it will create a new view to the same data.
     ecdf = ECDF(df[variable])
-    x = np.linspace(min(df[variable]), np.percentile(df[variable], 99.9))
-    y = ecdf(x)
+    x = np.linspace(min(df[variable]), np.nanpercentile(df[variable], 99.9))    #横坐标范围
+    print(min(df[variable]))
+    print(np.nanpercentile(df[variable], 99.9))
+    y = ecdf(x) # y关于x的经验分布函数 公式详见https://en.wikipedia.org/wiki/Empirical_distribution_function
     plt.step(x, y)
 
 def debitRatio():
@@ -65,27 +67,10 @@ def debtRatioAboutIncome():
     plt.plot(perc2, val2)
     plt.show()
 
-def showVariable():
-    # 类中函数调用其他函数
-    df_mis_inc, df_not_mis_inc, var_names = read_data()
-    print(type(df_mis_inc))
-    print(df_not_mis_inc)
 
-def test():
-    df = pd.DataFrame(
-        {'age': [5, 6, np.NaN],
-         'born': [pd.NaT, pd.Timestamp('1939-05-27'), pd.Timestamp('1940-04-25')],
-         'name': ['Alfred', 'Batman', ''],
-         'toy': [None, 'Batmobile', 'Joker']})
-    print(df)
-    print(df['name'].isna())
-    print(df[df['name'].isna()])
 
 if __name__ == '__main__':
-    debtRatioAboutIncome()
-    
+ read_data()
 
-if __name__ == '__main__':
-    debtRatioAboutIncome()
 
 

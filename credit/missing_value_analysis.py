@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
 from statsmodels.distributions.empirical_distribution import ECDF
 from credit_data_preprocess2 import visualizeECDF
 
@@ -25,14 +24,14 @@ def read_data():
 def visualizeECDF( variable, data):
     df = data[:]  # 入参是一个向量。故[:]： for a (say) NumPy array, it will create a new view to the same data.
     ecdf = ECDF(df[variable])
-    x = np.linspace(min(df[variable]), np.percentile(df[variable], 99.9))
+    x = np.linspace(min(df[variable]), np.nanpercentile(df[variable], 99.9))
     y = ecdf(x)
     plt.step(x, y)
 
 def show():
     df_mis_inc, df_not_mis_inc, varNames=read_data()
     np.random.seed(100)
-    fig, axes = plt.subplots(nrows=9, ncols=2)
+    fig, axes = plt.subplots(nrows=9, ncols=2)  #9行两列的图
     fig.tight_layout()
     fig.set_figheight(45)
     fig.set_figwidth(15)
@@ -44,61 +43,34 @@ def show():
         ax = plt.subplot(9, 2, i + 1)
         ax.set_title(varNames[(i - 1) // 2])
         visualizeECDF(varNames[(i - 1) // 2], df_mis_inc)
+    # debitRatio在df_not_mis_inc和df_mis_inc中的经验分布函数体现的差距较大
 
 def debitRatio():
     df = pd.read_csv("cs-training.csv")
     perc = range(81)
-    perc = [10, 20, 30, 40, 50, 60, 70, 80]
     val = []
     for i in perc:
         val.append(np.percentile(df['DebtRatio'], i))
     plt.plot(perc, val, 'go-', linewidth=2, markersize=12)
 
+# 显示负债率最高的有收入的人 的 top1%的负债率曲线
+    # 和收入缺失的人的 整体负债率 大致相当
+    # 故用前者的收入来替代后者，就归0吧
 def debtRatioAboutIncome():
     df_mis_inc, df_not_mis_inc, var_names = read_data()
     perc1 = [99.0, 99.1, 99.2, 99.3, 99.4, 99.5, 99.6, 99.7, 99.8, 99.9]
     perc2 = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
-    perc3 = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
     val1 = []
     val2 = []
-    val3 = []
-    df_val3 = [0,10,20,30,40,50,60,70,80,90]
-    print(df_not_mis_inc.shape,'\n')
-    print('df_not_mis_inc',df_not_mis_inc['DebtRatio'].shape,"\n")
-    print('df_mis_inc','\n',df_mis_inc['DebtRatio'].shape,"\n")
-    print('df_not_mis_inc','\n',df_not_mis_inc['DebtRatio'],"\n")
-
-
-    print('df_mis_inc',np.percentile(df_mis_inc['DebtRatio'],50),'\n')
     for i in perc1:
         val1.append(np.percentile(df_not_mis_inc['DebtRatio'], i))
         #给出来的值是超过i%的值，该值是属于df_not_mis_inc['DebtRatio']的一项值
     for i in perc2:
-        val2.append(np.percentile(df_mis_inc['DebtRatio'], i))
-        print(i,val2)
-    for i in perc3:
-        val3.append(np.percentile(i,df_val3))
-
+        val2.append(np.percentile(df_mis_inc['DebtRatio'], i)) # 无收入，负债比例从0到90的人的经验曲线
     plt.plot(perc1, val1)
-    plt.show()
     plt.plot(perc2, val2)
     plt.show()
-    plt.plot(perc3, val3)
-    plt.show()
 
-
-def printline():
-    print('----------------')
-def test():
-    df = pd.DataFrame({'age': [5, 6, np.NaN],
-                       'born': [pd.NaT, pd.Timestamp('1939-05-27'), pd.Timestamp('1940-04-25')],
-                       'name': ['Alfred', 'Batman', ''],
-                       'toy': [None, 'Batmobile', 'Joker']})
-    print(df)
-    printline()
-    print(df['born'].isna())
-    printline()
-    print(df[df['born'].isna()])
 
 
 if __name__ == '__main__':
