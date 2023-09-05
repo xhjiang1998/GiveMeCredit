@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 from statsmodels.distributions.empirical_distribution import ECDF
-
+from OutlierAnalysis import load_data
 
 def read_data():
     np.set_printoptions(edgeitems=10)
@@ -12,65 +12,36 @@ def read_data():
     pd.set_option('display.max_columns', 20)
 
     train_data = pd.read_csv("cs-training.csv")
-    # test_data=pd.read_csv("cs-test.csv")
     # 判断是否有重复
     train_data.rename(columns={'Unnamed: 0': 'ID'}, inplace=True)
-    # test_data.rename(columns={'Unnamed: 0':'ID'},inplace=True)
 
     # print(train_data.duplicated().value_counts())
     # print(test_data.duplicated().value_counts())
     # print(train_data.describe())
     # 收入的数量120269不对 家属人数146076也不对
 
-    df_mis_inc = train_data[train_data['MonthlyIncome'].isna()]  # 判断对应的矩阵为空则赋true，size相同
-    df_not_mis_inc = train_data[train_data['MonthlyIncome'].notna()]  # 判断收入没丢的
-    varNames = ['RevolvingUtilizationOfUnsecuredLines', 'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio',
-                'NumberOfOpenCreditLinesAndLoans', 'NumberOfTimes90DaysLate', 'NumberRealEstateLoansOrLines',
-                'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
 
-    return df_mis_inc, df_not_mis_inc, varNames
+# 计算部分特征对应的特征值
+def adjust_value_count():
+    df,df1,cols=load_data()
+    print(df['NumberOfTime30-59DaysPastDueNotWorse'].value_counts())
+    print(df['NumberOfTimes90DaysLate'].value_counts())
+    print(df['NumberOfTime60-89DaysPastDueNotWorse'].value_counts())
 
-def visualizeECDF(variable, data):
-    df = data[:]  # 入参是一个向量。故[:]： for a (say) NumPy array, it will create a new view to the same data.
-    ecdf = ECDF(df[variable])
-    x = np.linspace(min(df[variable]), np.nanpercentile(df[variable], 99.9))    #横坐标范围
-    print(min(df[variable]))
-    print(np.nanpercentile(df[variable], 99.9))
-    y = ecdf(x) # y关于x的经验分布函数 公式详见https://en.wikipedia.org/wiki/Empirical_distribution_function
-    plt.step(x, y)
+    # 将部分明显的偏差正常的值纠正
+    df.loc[df['NumberOfTimes90DaysLate']>20,'NumberOfTimes90DaysLate']=20
+    df.loc[df['NumberOfTime60-89DaysPastDueNotWorse']>20,'NumberOfTime60-89DaysPastDueNotWorse']=20
+    df.loc[df['NumberOfTime30-59DaysPastDueNotWorse']>20,'NumberOfTime30-59DaysPastDueNotWorse']=20
+    # 观察结果(过去两年中发生60-89天逾期的次数)
+    print(df['NumberOfTime60-89DaysPastDueNotWorse'].value_counts())
 
-def debitRatio():
-    df = pd.read_csv("cs-training.csv")
-    perc = range(81)
-    perc = [10, 20, 30, 40, 50, 60, 70, 80]
-    val = []
-    for i in perc:
-        val.append(np.percentile(df['DebtRatio'], i))
-    plt.plot(perc, val, 'go-', linewidth=2, markersize=12)
-
-def debtRatioAboutIncome():
-    df = pd.read_csv("cs-training.csv")
-    df_not_mis_inc = df[df['MonthlyIncome'].notna()]
-    df_mis_inc = df[df['MonthlyIncome'].isna()]
-    perc1 = [99.0, 99.1, 99.2, 99.3, 99.4, 99.5, 99.6, 99.7, 99.8, 99.9]
-    perc2 = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
-    val1 = []
-    val2 = []
-    for i in perc1:
-        val1.append(np.percentile(df_not_mis_inc['DebtRatio'], i)) # 收入空且负债比率高于99%的人的经验曲线
-        print(i,df_not_mis_inc['DebtRatio'],val1)
-    for i in perc2:
-        val2.append(np.percentile(df_mis_inc['DebtRatio'], i)) # 无收入，负债比例从0到90的人的经验曲线
-        print(i,df_mis_inc['DebtRatio'],val2)
-    plt.plot(perc1, val1)
-    plt.show()
-    plt.plot(perc2, val2)
-    plt.show()
-
-
+    # 缺失值填补
+    df_mis_inc = df[df['MonthlyIncome'].isna()]  # 只输出为true的df，而true就是MonthlyIncome为空的
+    df_mis_inc['MonthlyIncome']=0
 
 if __name__ == '__main__':
- read_data()
+     read_data()
+     adjust_value_count()
 
 
 

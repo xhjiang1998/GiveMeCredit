@@ -28,19 +28,6 @@ def outlierAnalysis():
         print(df2) #行累加，按照列归纳出结果，跳过为null值的
     print(df2.sort_values());
 
-# 计算部分特征对应的特征值
-def value_count():
-    df,df1,cols=load_data()
-    print(df['NumberOfTime30-59DaysPastDueNotWorse'].value_counts())
-    print(df['NumberOfTimes90DaysLate'].value_counts())
-    print(df['NumberOfTime60-89DaysPastDueNotWorse'].value_counts())
-
-    # 将部分明显的偏差正常的值纠正
-    df.loc[df['NumberOfTimes90DaysLate']>20,'NumberOfTimes90DaysLate']=20
-    df.loc[df['NumberOfTime60-89DaysPastDueNotWorse']>20,'NumberOfTime60-89DaysPastDueNotWorse']=20
-    df.loc[df['NumberOfTime30-59DaysPastDueNotWorse']>20,'NumberOfTime30-59DaysPastDueNotWorse']=20
-    # 观察结果(过去两年中发生60-89天逾期的次数)
-    print(df['NumberOfTime60-89DaysPastDueNotWorse'].value_counts())
 
 # 描绘三个连续变量的分布
 # 无抵押贷款循环使用率，除不动产和车贷之外的贷款余额与个人信用总额度之比
@@ -93,4 +80,3 @@ def outilerprocess():
     plt.show()
 
 if __name__ == '__main__':
-    value_count()

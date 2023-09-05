@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.distributions.empirical_distribution import ECDF
-from credit_data_preprocess2 import visualizeECDF
 
 
 
@@ -25,7 +24,7 @@ def visualizeECDF( variable, data):
     df = data[:]  # 入参是一个向量。故[:]： for a (say) NumPy array, it will create a new view to the same data.
     ecdf = ECDF(df[variable])
     x = np.linspace(min(df[variable]), np.nanpercentile(df[variable], 99.9))
-    y = ecdf(x)
+    y = ecdf(x) # y关于x的经验分布函数 公式详见https://en.wikipedia.org/wiki/Empirical_distribution_function
     plt.step(x, y)
 
 def show():
@@ -63,10 +62,10 @@ def debtRatioAboutIncome():
     val1 = []
     val2 = []
     for i in perc1:
-        val1.append(np.percentile(df_not_mis_inc['DebtRatio'], i))
+        val1.append(np.percentile(df_not_mis_inc['DebtRatio'], i))# 收入无缺失且负债比率高于99%的人的经验曲线
         #给出来的值是超过i%的值，该值是属于df_not_mis_inc['DebtRatio']的一项值
     for i in perc2:
-        val2.append(np.percentile(df_mis_inc['DebtRatio'], i)) # 无收入，负债比例从0到90的人的经验曲线
+        val2.append(np.percentile(df_mis_inc['DebtRatio'], i)) # 收入缺失，负债比例从0到90的人的经验曲线
     plt.plot(perc1, val1)
     plt.plot(perc2, val2)
     plt.show()
