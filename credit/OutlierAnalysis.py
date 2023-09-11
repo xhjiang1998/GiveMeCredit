@@ -6,7 +6,7 @@ from statsmodels.distributions.empirical_distribution import ECDF
 # 计算分位数的方法：https://zhuanlan.zhihu.com/p/235345817
 
 #加载数据
-from credit.credit_data_preprocess2 import visualizeECDF
+from missing_value_analysis import visualizeECDF
 
 
 def load_data():
@@ -52,6 +52,8 @@ def outilerprocess():
     ax = plt.subplot(3,2,2)
     ax.set_title(varNames[0])
     plt.plot(perc, val1, 'go-', linewidth=2, markersize=12) # perc为x轴，val为y轴
+    for a, b in zip(perc,val1):
+        plt.text(a, b, (a,b),verticalalignment='top', va='center', fontsize=10)
 
     ax = plt.subplot(3,2,3)
     ax.set_title(varNames[1])
@@ -63,6 +65,8 @@ def outilerprocess():
     ax = plt.subplot(3,2,4)
     ax.set_title(varNames[1])
     plt.plot(perc, val2,'go-', linewidth=2, markersize=12)
+    for a, b in zip(perc,val2):
+        plt.text(a, b, (a,b),ha='center', va='bottom', fontsize=10)
 
     # Full distribution vs top 2.5 percentile distribution
     ax = plt.subplot(3,2,5) # 3行2列第5个
@@ -77,6 +81,10 @@ def outilerprocess():
     ax = plt.subplot(3,2,6)
     ax.set_title(varNames[2])
     plt.plot(perc, val3, 'go-', linewidth=2, markersize=12)
+    for a, b in zip(perc,val3):
+        plt.text(a, b, (a,b),ha='center', va='bottom', fontsize=10)
     plt.show()
 
+
 if __name__ == '__main__':
+    outilerprocess()

@@ -35,12 +35,13 @@ def adjust_value_count():
     # 观察结果(过去两年中发生60-89天逾期的次数)
     print(df['NumberOfTime60-89DaysPastDueNotWorse'].value_counts())
 
-    # 缺失值填补
-    df_mis_inc = df[df['MonthlyIncome'].isna()]  # 只输出为true的df，而true就是MonthlyIncome为空的
-    df_mis_inc['MonthlyIncome']=0
+    # 收入缺失值填补
+    df.loc[df[df[df['MonthlyIncome'].isna()],'MonthlyIncome']]=0
+    print(df[df['MonthlyIncome'].isna()].size)
+
+    # 亲属缺失值填补为0
 
 if __name__ == '__main__':
-     read_data()
      adjust_value_count()
 
 
