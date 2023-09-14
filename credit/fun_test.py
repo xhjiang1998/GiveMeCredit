@@ -70,3 +70,7 @@ print(max(df['RevolvingUtilizationOfUnsecuredLines']))
 print(val1)
 val2=df[df['RevolvingUtilizationOfUnsecuredLines']>10000]
 print(val2['RevolvingUtilizationOfUnsecuredLines'].size)
+
+# %%
+df= pd.read_csv("cs-training.csv")
+

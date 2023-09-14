@@ -1,29 +1,48 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import os
-from statsmodels.distributions.empirical_distribution import ECDF
 from OutlierAnalysis import load_data
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.distributions.empirical_distribution import ECDF
+
 
 def read_data():
+    """
+
+    :rtype: 对应的收入为空的dataframe等
+    """
     np.set_printoptions(edgeitems=10)
     np.core.arrayprint._line_width = 180
-    # 显示为……的列
-    pd.set_option('display.max_columns', 20)
+    df = pd.read_csv("cs-training.csv")
+    df_mis_inc = df[df['MonthlyIncome'].isna()]  # 只输出为true的df，而true就是MonthlyIncome为空的
+    df_not_mis_inc = df[df['MonthlyIncome'].notna()]  # 输出收入没丢的
+    varNames = ['RevolvingUtilizationOfUnsecuredLines', 'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio',
+                'NumberOfOpenCreditLinesAndLoans', 'NumberOfTimes90DaysLate', 'NumberRealEstateLoansOrLines',
+                'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
+    return df_mis_inc, df_not_mis_inc, varNames
 
-    train_data = pd.read_csv("cs-training.csv")
-    # 判断是否有重复
-    train_data.rename(columns={'Unnamed: 0': 'ID'}, inplace=True)
-
-    # print(train_data.duplicated().value_counts())
-    # print(test_data.duplicated().value_counts())
-    # print(train_data.describe())
-    # 收入的数量120269不对 家属人数146076也不对
+def visual_data():
+    df=read_data()
+    print('df.head()','\n',df.head())
+    print('df.columns','\n',df.columns)
+    print('df.shape','\n',df.shape)
+    print('df.dtypes','\n',df.dtypes)
+    df.SeriousDlqin2yrs=(df.SeriousDlqin2yrs).astype('category')
+    df.describe()
+    df.info()
+    print('df.describe()','\n',df.describe)
+    print('df.info()','\n',df.info)
+    percent_miss_MonthlyIncome=np.round(sum(df['MonthlyIncome'].isna())/df.shape[0],2)
+    percent_miss_NumberOfDependents=np.round(sum(df['NumberOfDependents'].isna())/df.shape[0],2)
+    print('percent_miss_MonthlyIncome:{}'.format(percent_miss_MonthlyIncome))
+    print('percent_miss_NumberOfDependents:{}'.format(percent_miss_NumberOfDependents))
 
 
 # 计算部分特征对应的特征值
 def adjust_value_count():
     df,df1,cols=load_data()
+    df_mis_inc, df_not_mis_inc, varNames=read_data()
     print(df['NumberOfTime30-59DaysPastDueNotWorse'].value_counts())
     print(df['NumberOfTimes90DaysLate'].value_counts())
     print(df['NumberOfTime60-89DaysPastDueNotWorse'].value_counts())
@@ -36,13 +55,16 @@ def adjust_value_count():
     print(df['NumberOfTime60-89DaysPastDueNotWorse'].value_counts())
 
     # 收入缺失值填补
-    df.loc[df[df[df['MonthlyIncome'].isna()],'MonthlyIncome']]=0
+    # df.loc[df[df['MonthlyIncome'].isna()],'MonthlyIncome']=0 错误写法
+    df['MonthlyIncome']=df['MonthlyIncome'].fillna(0)
     print(df[df['MonthlyIncome'].isna()].size)
 
-    # 亲属缺失值填补为0
+    # 亲属缺失值使用中位数来填充
+    df[df['NumberOfDependents'].isna()].describe()
+    df[df['NumberOfDependents'].notna()].describe()
+
 
 if __name__ == '__main__':
-     adjust_value_count()
-
+    adjust_value_count()
 
 

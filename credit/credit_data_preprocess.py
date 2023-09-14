@@ -15,17 +15,10 @@ class Test:
         np.core.arrayprint._line_width = 180
         # 显示为……的列
         pd.set_option('display.max_columns', 20)
-
         train_data = pd.read_csv("cs-training.csv")
-        # test_data=pd.read_csv("cs-test.csv")
         # 判断是否有重复
         train_data.rename(columns={'Unnamed: 0': 'ID'}, inplace=True)
-        # test_data.rename(columns={'Unnamed: 0':'ID'},inplace=True)
 
-        # print(train_data.duplicated().value_counts())
-        # print(test_data.duplicated().value_counts())
-        # print(train_data.describe())
-        # 收入的数量120269不对 家属人数146076也不对
 
         df_mis_inc = train_data[train_data['MonthlyIncome'].isna()]  # 判断对应的矩阵为空则赋true，size相同
         df_not_mis_inc = train_data[train_data['MonthlyIncome'].notna()]  # 判断收入没丢的

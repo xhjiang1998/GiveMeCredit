@@ -31,8 +31,8 @@ from sklearn.decomposition import PCA
 def std():
     df=pd.read_csv("cs-training.csv")
     sclar=StandardScaler()
-    df_std=pd.DataFrame(sclar.fit_transform(df.drop(['Unnamed:0','SeriousDlqin2yrs'],axis=1)),
-    columns=df.drop(['Unnamed:0','SeriousDlqin2yrs'],axis=1).columns)
+    df_std=pd.DataFrame(sclar.fit_transform(df.drop(['Unnamed: 0','SeriousDlqin2yrs'],axis=1)),
+    columns=df.drop(['Unnamed: 0','SeriousDlqin2yrs'],axis=1).columns)
     print(df_std)
     pca=PCA()
     pca.fit(df_std)

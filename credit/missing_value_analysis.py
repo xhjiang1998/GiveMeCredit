@@ -43,7 +43,9 @@ def show():
         ax.set_title(varNames[(i - 1) // 2])
         visualizeECDF(varNames[(i - 1) // 2], df_mis_inc)
     # debitRatio在df_not_mis_inc和df_mis_inc中的经验分布函数体现的差距较大
+    # NumberOfDependencies的差距也大
 
+# DebtRatio is distributed Overall
 def debitRatio():
     df = pd.read_csv("cs-training.csv")
     perc = range(81)
@@ -70,10 +72,24 @@ def debtRatioAboutIncome():
     plt.plot(perc2, val2)
     plt.show()
 
+def NumberOfDependents():
+    df_mis_inc, df_not_mis_inc, var_names = read_data()
+    df_not_mis_inc.hist("NumberOfDependents")
+    plt.xticks(np.arange(0,20,1))
+    df_mis_inc.hist("NumberOfDependents")
+    plt.xticks(np.arange(0,20,1))
+    plt.show()
 
+def NumberOfDependents_about_income():
+    df_mis_inc, df_not_mis_inc, var_names = read_data()
+    print(df_mis_inc['NumberOfDependents'].value_counts())
+    print(df_not_mis_inc.loc[df_not_mis_inc['NumberOfDependents']==0,["MonthlyIncome"]].mean())
+    print(df_not_mis_inc.loc[df_not_mis_inc['NumberOfDependents']==1,['MonthlyIncome']].mean())
+    print(df_not_mis_inc.loc[df_not_mis_inc['NumberOfDependents']>1,["MonthlyIncome"]].mean())
 
 if __name__ == '__main__':
     debtRatioAboutIncome()
+    NumberOfDependents_about_income()
 
 
 
