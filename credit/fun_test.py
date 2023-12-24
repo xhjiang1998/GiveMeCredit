@@ -72,5 +72,16 @@ val2=df[df['RevolvingUtilizationOfUnsecuredLines']>10000]
 print(val2['RevolvingUtilizationOfUnsecuredLines'].size)
 
 # %%
-df= pd.read_csv("cs-training.csv")
+a=[1,2,3,4,5,6]
+b=[1,2,3]
+c=[1,3,6]
+zipped=zip(a,b,c)
+print(list(zipped))
 
+
+# %%
+import numpy as np
+clients=[1,2,3,4,5,6]
+current_num_join_clients=[1,2,4]
+list(np.random.choice(clients, current_num_join_clients, replace=False))
+list
