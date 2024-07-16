@@ -15,7 +15,7 @@ class Test:
         np.core.arrayprint._line_width = 180
         # 显示为……的列
         pd.set_option('display.max_columns', 20)
-        train_data = pd.read_csv("cs-training.csv")
+        train_data = pd.read_csv("data/cs-training.csv")
         # 判断是否有重复
         train_data.rename(columns={'Unnamed: 0': 'ID'}, inplace=True)
 
@@ -37,7 +37,7 @@ class Test:
 
     # 债务数据分布
     def debitRatio(self):
-        df = pd.read_csv("cs-training.csv")
+        df = pd.read_csv("data/cs-training.csv")
         perc = range(81)
         perc = [10, 20, 30, 40, 50, 60, 70, 80]
         val = []
@@ -47,7 +47,7 @@ class Test:
 
     # 债务比关于收入的经验函数分布
     def debtRatioAboutIncome(self):
-        df = pd.read_csv("cs-training.csv")
+        df = pd.read_csv("data/cs-training.csv")
         df_not_mis_inc = df[df['MonthlyIncome'].notna()]
         df_mis_inc = df[df['MonthlyIncome'].isna()]
         perc1 = [99.0, 99.1, 99.2, 99.3, 99.4, 99.5, 99.6, 99.7, 99.8, 99.9]

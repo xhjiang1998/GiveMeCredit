@@ -3508,3 +3508,416 @@ Please also refer to the documentation for alternative solver options:
                    random_state=5300, solver='lbfgs', tol=0.0001, verbose=0,
                    warm_start=False)
 2023-12-25 01:38:31,942:INFO:create_model() successfully completed......................................
+2023-12-29 14:05:57,054:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 14:05:57,123:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 14:05:57,123:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 14:05:57,123:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 14:46:12,937:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 14:46:12,937:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 14:46:12,937:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 14:46:12,937:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:09:53,664:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:09:53,664:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:09:53,665:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:09:53,665:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:21:01,867:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:21:01,867:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:21:01,867:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:21:01,867:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:22:42,451:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:22:42,451:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:22:42,451:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 15:22:42,451:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-12-29 16:36:35,361:INFO:PyCaret RegressionExperiment
+2023-12-29 16:36:35,361:INFO:Logging name: ml_
+2023-12-29 16:36:35,361:INFO:ML Usecase: MLUsecase.REGRESSION
+2023-12-29 16:36:35,361:INFO:version 3.0.4
+2023-12-29 16:36:35,361:INFO:Initializing setup()
+2023-12-29 16:36:35,361:INFO:self.USI: 67fe
+2023-12-29 16:36:35,362:INFO:self._variable_keys: {'fold_generator', 'idx', 'gpu_param', '_ml_usecase', 'memory', 'pipeline', 'y', 'exp_id', 'target_param', 'X_train', 'seed', 'n_jobs_param', 'fold_groups_param', 'USI', 'html_param', 'X_test', 'y_train', 'X', 'log_plots_param', 'fold_shuffle_param', '_available_plots', 'gpu_n_jobs_param', 'logging_param', 'data', 'exp_name_log', 'y_test', 'transform_target_param'}
+2023-12-29 16:36:35,362:INFO:Checking environment
+2023-12-29 16:36:35,362:INFO:python_version: 3.7.12
+2023-12-29 16:36:35,362:INFO:python_build: ('default', 'Oct 26 2021 05:37:49')
+2023-12-29 16:36:35,362:INFO:machine: AMD64
+2023-12-29 16:36:35,362:INFO:platform: Windows-10-10.0.19041-SP0
+2023-12-29 16:36:35,429:INFO:Memory: svmem(total=12753448960, available=2966319104, percent=76.7, used=9787129856, free=2966319104)
+2023-12-29 16:36:35,429:INFO:Physical Core: 2
+2023-12-29 16:36:35,430:INFO:Logical Core: 4
+2023-12-29 16:36:35,430:INFO:Checking libraries
+2023-12-29 16:36:35,430:INFO:System:
+2023-12-29 16:36:35,430:INFO:    python: 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 05:37:49) [MSC v.1916 64 bit (AMD64)]
+2023-12-29 16:36:35,430:INFO:executable: E:\IDE\Python\Anaconda\envs\GiveMeCredit\python.exe
+2023-12-29 16:36:35,431:INFO:   machine: Windows-10-10.0.19041-SP0
+2023-12-29 16:36:35,431:INFO:PyCaret required dependencies:
+2023-12-29 16:36:35,822:INFO:                 pip: 23.2.1
+2023-12-29 16:36:35,823:INFO:          setuptools: 59.8.0
+2023-12-29 16:36:35,823:INFO:             pycaret: 3.0.4
+2023-12-29 16:36:35,824:INFO:             IPython: 7.34.0
+2023-12-29 16:36:35,824:INFO:          ipywidgets: 8.1.1
+2023-12-29 16:36:35,824:INFO:                tqdm: 4.66.1
+2023-12-29 16:36:35,825:INFO:               numpy: 1.21.6
+2023-12-29 16:36:35,826:INFO:              pandas: 1.3.1
+2023-12-29 16:36:35,826:INFO:              jinja2: 3.1.2
+2023-12-29 16:36:35,826:INFO:               scipy: 1.7.0
+2023-12-29 16:36:35,826:INFO:              joblib: 1.3.2
+2023-12-29 16:36:35,826:INFO:             sklearn: 1.0.2
+2023-12-29 16:36:35,826:INFO:                pyod: 1.1.2
+2023-12-29 16:36:35,826:INFO:            imblearn: 0.11.0
+2023-12-29 16:36:35,826:INFO:   category_encoders: 2.6.3
+2023-12-29 16:36:35,826:INFO:            lightgbm: 4.2.0
+2023-12-29 16:36:35,826:INFO:               numba: 0.56.4
+2023-12-29 16:36:35,826:INFO:            requests: 2.31.0
+2023-12-29 16:36:35,826:INFO:          matplotlib: 3.5.3
+2023-12-29 16:36:35,826:INFO:          scikitplot: 0.3.7
+2023-12-29 16:36:35,826:INFO:         yellowbrick: 1.5
+2023-12-29 16:36:35,826:INFO:              plotly: 5.18.0
+2023-12-29 16:36:35,826:INFO:    plotly-resampler: Not installed
+2023-12-29 16:36:35,827:INFO:             kaleido: 0.2.1
+2023-12-29 16:36:35,827:INFO:           schemdraw: 0.15
+2023-12-29 16:36:35,827:INFO:         statsmodels: 0.13.5
+2023-12-29 16:36:35,827:INFO:              sktime: 0.19.2
+2023-12-29 16:36:35,827:INFO:               tbats: 1.1.3
+2023-12-29 16:36:35,827:INFO:            pmdarima: 2.0.4
+2023-12-29 16:36:35,827:INFO:              psutil: 5.9.7
+2023-12-29 16:36:35,827:INFO:          markupsafe: 2.1.3
+2023-12-29 16:36:35,827:INFO:             pickle5: 0.0.12
+2023-12-29 16:36:35,827:INFO:         cloudpickle: 2.2.1
+2023-12-29 16:36:35,828:INFO:         deprecation: 2.1.0
+2023-12-29 16:36:35,828:INFO:              xxhash: 3.4.1
+2023-12-29 16:36:35,828:INFO:           wurlitzer: Not installed
+2023-12-29 16:36:35,828:INFO:PyCaret optional dependencies:
+2023-12-29 16:36:35,884:INFO:                shap: Not installed
+2023-12-29 16:36:35,885:INFO:           interpret: Not installed
+2023-12-29 16:36:35,885:INFO:                umap: Not installed
+2023-12-29 16:36:35,885:INFO:    pandas_profiling: 4.6.3
+2023-12-29 16:36:35,885:INFO:  explainerdashboard: Not installed
+2023-12-29 16:36:35,885:INFO:             autoviz: Not installed
+2023-12-29 16:36:35,885:INFO:           fairlearn: Not installed
+2023-12-29 16:36:35,885:INFO:          deepchecks: Not installed
+2023-12-29 16:36:35,886:INFO:             xgboost: Not installed
+2023-12-29 16:36:35,886:INFO:            catboost: Not installed
+2023-12-29 16:36:35,886:INFO:              kmodes: Not installed
+2023-12-29 16:36:35,886:INFO:             mlxtend: Not installed
+2023-12-29 16:36:35,886:INFO:       statsforecast: Not installed
+2023-12-29 16:36:35,886:INFO:        tune_sklearn: Not installed
+2023-12-29 16:36:35,886:INFO:                 ray: Not installed
+2023-12-29 16:36:35,886:INFO:            hyperopt: Not installed
+2023-12-29 16:36:35,886:INFO:              optuna: Not installed
+2023-12-29 16:36:35,887:INFO:               skopt: Not installed
+2023-12-29 16:36:35,887:INFO:              mlflow: 1.30.1
+2023-12-29 16:36:35,887:INFO:              gradio: Not installed
+2023-12-29 16:36:35,887:INFO:             fastapi: Not installed
+2023-12-29 16:36:35,887:INFO:             uvicorn: Not installed
+2023-12-29 16:36:35,887:INFO:              m2cgen: Not installed
+2023-12-29 16:36:35,887:INFO:           evidently: Not installed
+2023-12-29 16:36:35,887:INFO:               fugue: Not installed
+2023-12-29 16:36:35,887:INFO:           streamlit: 1.23.1
+2023-12-29 16:36:35,887:INFO:             prophet: Not installed
+2023-12-29 16:36:35,888:INFO:None
+2023-12-29 16:36:35,888:INFO:Set up data.
+2023-12-29 16:36:35,974:INFO:Set up train/test split.
+2023-12-29 16:36:36,075:INFO:Set up index.
+2023-12-29 16:36:36,076:INFO:Set up folding strategy.
+2023-12-29 16:36:36,076:INFO:Assigning column types.
+2023-12-29 16:36:36,110:INFO:Engine successfully changes for model 'lr' to 'sklearn'.
+2023-12-29 16:36:36,110:INFO:Engine for model 'lasso' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,122:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,142:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,307:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,415:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,416:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:36,416:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:36,417:INFO:Engine for model 'lasso' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,423:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,437:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,535:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,608:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,609:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:36,609:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:36,610:INFO:Engine successfully changes for model 'lasso' to 'sklearn'.
+2023-12-29 16:36:36,621:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,626:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,717:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,797:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,799:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:36,800:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:36,809:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,815:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2023-12-29 16:36:36,944:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,067:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,068:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:37,069:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:37,070:INFO:Engine successfully changes for model 'ridge' to 'sklearn'.
+2023-12-29 16:36:37,110:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,279:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,369:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,370:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:37,371:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:37,385:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,502:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,567:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,568:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:37,568:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:37,569:INFO:Engine successfully changes for model 'en' to 'sklearn'.
+2023-12-29 16:36:37,677:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,783:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,785:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:37,785:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:37,896:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,983:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2023-12-29 16:36:37,985:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:37,986:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:37,986:INFO:Engine successfully changes for model 'knn' to 'sklearn'.
+2023-12-29 16:36:38,154:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2023-12-29 16:36:38,264:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:38,265:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:38,433:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2023-12-29 16:36:38,538:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:38,538:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:38,539:INFO:Engine successfully changes for model 'svm' to 'sklearn'.
+2023-12-29 16:36:38,876:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:38,876:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:39,147:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:39,148:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:39,254:INFO:Preparing preprocessing pipeline...
+2023-12-29 16:36:39,255:INFO:Set up simple imputation.
+2023-12-29 16:36:39,299:INFO:Set up encoding of ordinal features.
+2023-12-29 16:36:39,313:INFO:Set up encoding of categorical features.
+2023-12-29 16:36:39,314:INFO:Set up removing outliers.
+2023-12-29 16:36:39,316:INFO:Set up column name cleaning.
+2023-12-29 16:36:41,171:WARNING:E:\IDE\Python\Anaconda\envs\GiveMeCredit\lib\site-packages\sklearn\base.py:451: UserWarning: X does not have valid feature names, but IsolationForest was fitted with feature names
+  "X does not have valid feature names, but"
+
+2023-12-29 16:36:41,635:INFO:Finished creating preprocessing pipeline.
+2023-12-29 16:36:41,902:INFO:Pipeline: Pipeline(memory=FastMemory(location=C:\WINDOWS\TEMP\joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Unnamed: 0', 'symboling',
+                                             'normalized-losses', 'wheel-base',
+                                             'length', 'width', 'height',
+                                             'curb-weight', 'engine-size',
+                                             'compression-ratio', 'city-mpg',
+                                             'highway-mpg'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(inclu...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['bore', 'stroke', 'horsepower'],
+                                    transformer=TargetEncoder(cols=['bore',
+                                                                    'stroke',
+                                                                    'horsepower'],
+                                                              handle_missing='return_nan'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=1361))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames()))])
+2023-12-29 16:36:41,902:INFO:Creating final display dataframe.
+2023-12-29 16:36:42,449:WARNING:E:\IDE\Python\Anaconda\envs\GiveMeCredit\lib\site-packages\sklearn\base.py:451: UserWarning: X does not have valid feature names, but IsolationForest was fitted with feature names
+  "X does not have valid feature names, but"
+
+2023-12-29 16:36:44,456:INFO:Setup _display_container:                     Description         Value
+0                    Session id          1361
+1                        Target         price
+2                   Target type    Regression
+3           Original data shape     (202, 27)
+4        Transformed data shape     (195, 92)
+5   Transformed train set shape     (134, 92)
+6    Transformed test set shape      (61, 92)
+7              Ordinal features             4
+8              Numeric features            12
+9          Categorical features            14
+10     Rows with missing values         18.8%
+11                   Preprocess          True
+12              Imputation type        simple
+13           Numeric imputation          mean
+14       Categorical imputation          mode
+15     Maximum one-hot encoding            25
+16              Encoding method          None
+17              Remove outliers          True
+18           Outliers threshold          0.05
+19               Fold Generator         KFold
+20                  Fold Number            10
+21                     CPU Jobs            -1
+22                      Use GPU         False
+23               Log Experiment  MlflowLogger
+24              Experiment Name           ml_
+25                          USI          67fe
+2023-12-29 16:36:45,296:ERROR:Data Failed with exception:
+ `BaseSettings` has been moved to the `pydantic-settings` package. See https://docs.pydantic.dev/2.5/migration/#basesettings-has-moved-to-pydantic-settings for more details.
+
+For further information visit https://errors.pydantic.dev/2.5/u/import-error
+No output to show, continue with modeling.
+2023-12-29 16:36:45,535:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:45,536:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:45,751:WARNING:
+'xgboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install xgboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:45,751:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-12-29 16:36:45,752:INFO:Logging experiment in loggers
+2023-12-29 16:36:46,427:INFO:SubProcess save_model() called ==================================
+2023-12-29 16:36:46,809:INFO:Initializing save_model()
+2023-12-29 16:36:46,809:INFO:save_model(model=Pipeline(memory=FastMemory(location=C:\WINDOWS\TEMP\joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Unnamed: 0', 'symboling',
+                                             'normalized-losses', 'wheel-base',
+                                             'length', 'width', 'height',
+                                             'curb-weight', 'engine-size',
+                                             'compression-ratio', 'city-mpg',
+                                             'highway-mpg'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(inclu...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['bore', 'stroke', 'horsepower'],
+                                    transformer=TargetEncoder(cols=['bore',
+                                                                    'stroke',
+                                                                    'horsepower'],
+                                                              handle_missing='return_nan'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=1361))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames()))]), model_name=C:\WINDOWS\TEMP\tmpkb2v4jp1\Transformation Pipeline, prep_pipe_=Pipeline(memory=FastMemory(location=C:\WINDOWS\TEMP\joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Unnamed: 0', 'symboling',
+                                             'normalized-losses', 'wheel-base',
+                                             'length', 'width', 'height',
+                                             'curb-weight', 'engine-size',
+                                             'compression-ratio', 'city-mpg',
+                                             'highway-mpg'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(inclu...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['bore', 'stroke', 'horsepower'],
+                                    transformer=TargetEncoder(cols=['bore',
+                                                                    'stroke',
+                                                                    'horsepower'],
+                                                              handle_missing='return_nan'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=1361))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames()))]), verbose=False, use_case=MLUsecase.REGRESSION, kwargs={})
+2023-12-29 16:36:46,809:INFO:Adding model into prep_pipe
+2023-12-29 16:36:46,809:WARNING:Only Model saved as it was a pipeline.
+2023-12-29 16:36:46,981:INFO:C:\WINDOWS\TEMP\tmpkb2v4jp1\Transformation Pipeline.pkl saved in current working directory
+2023-12-29 16:36:47,186:INFO:Pipeline(memory=FastMemory(location=C:\WINDOWS\TEMP\joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['Unnamed: 0', 'symboling',
+                                             'normalized-losses', 'wheel-base',
+                                             'length', 'width', 'height',
+                                             'curb-weight', 'engine-size',
+                                             'compression-ratio', 'city-mpg',
+                                             'highway-mpg'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(inclu...
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['bore', 'stroke', 'horsepower'],
+                                    transformer=TargetEncoder(cols=['bore',
+                                                                    'stroke',
+                                                                    'horsepower'],
+                                                              handle_missing='return_nan'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=1361))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames()))])
+2023-12-29 16:36:47,186:INFO:save_model() successfully completed......................................
+2023-12-29 16:36:47,295:INFO:SubProcess save_model() end ==================================
+2023-12-29 16:36:47,361:INFO:setup() successfully completed in 10.53s...............
+2023-12-29 16:36:47,366:INFO:Initializing create_model()
+2023-12-29 16:36:47,369:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x000002780CFAF108>, estimator=lr, fold=None, round=4, cross_validation=True, predict=True, fit_kwargs=None, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=True, add_to_model_list=True, metrics=None, display=None, model_only=True, return_train_score=False, kwargs={})
+2023-12-29 16:36:47,370:INFO:Checking exceptions
+2023-12-29 16:36:47,374:INFO:Importing libraries
+2023-12-29 16:36:47,374:INFO:Copying training dataset
+2023-12-29 16:36:47,391:INFO:Defining folds
+2023-12-29 16:36:47,391:INFO:Declaring metric variables
+2023-12-29 16:36:47,392:INFO:Importing untrained model
+2023-12-29 16:36:47,393:INFO:Linear Regression Imported successfully
+2023-12-29 16:36:47,394:INFO:Starting cross validation
+2023-12-29 16:36:48,099:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2024-01-03 20:03:34,285:WARNING:E:\IDE\Python\Anaconda\envs\GiveMeCredit\lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:315: UserWarning: resource_tracker: There appear to be 2 leaked folder objects to clean up at shutdown
+  "resource_tracker: There appear to be "
+
+2024-01-03 20:03:34,562:WARNING:E:\IDE\Python\Anaconda\envs\GiveMeCredit\lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:330: UserWarning: resource_tracker: C:\WINDOWS\TEMP\joblib_memmapping_folder_25948_fec1e89d5dc64024b7b2b367d21cdf25_1d3f9e61bd7d4ea294791400614ff99a: FileNotFoundError(2, '系统找不到指定的路径。')
+  warnings.warn(f"resource_tracker: {name}: {e!r}")
+
+2024-01-03 20:03:34,714:WARNING:E:\IDE\Python\Anaconda\envs\GiveMeCredit\lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:330: UserWarning: resource_tracker: C:\WINDOWS\TEMP\joblib_memmapping_folder_25948_fec1e89d5dc64024b7b2b367d21cdf25_5fd952787ada48599c76b09a18ed9c4e: FileNotFoundError(2, '系统找不到指定的路径。')
+  warnings.warn(f"resource_tracker: {name}: {e!r}")
+

@@ -12,7 +12,7 @@ def read_data():
     """
     np.set_printoptions(edgeitems=10)
     np.core.arrayprint._line_width = 180
-    df = pd.read_csv("cs-training.csv")
+    df = pd.read_csv("data/cs-training.csv")
     df_mis_inc = df[df['MonthlyIncome'].isna()]  # 只输出为true的df，而true就是MonthlyIncome为空的
     df_not_mis_inc = df[df['MonthlyIncome'].notna()]  # 输出收入没丢的
     varNames = ['RevolvingUtilizationOfUnsecuredLines', 'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio',
@@ -47,7 +47,7 @@ def show():
 
 # DebtRatio is distributed Overall
 def debitRatio():
-    df = pd.read_csv("cs-training.csv")
+    df = pd.read_csv("data/cs-training.csv")
     perc = range(81)
     val = []
     for i in perc:

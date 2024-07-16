@@ -10,10 +10,9 @@ from missing_value_analysis import visualizeECDF
 
 
 def load_data():
-    df=pd.read_csv("cs-training.csv")
-    df1=pd.read_csv("cs-training.csv")
-    cols = df1.columns
-    return df,df1,cols
+    df=pd.read_csv("data/cs-training.csv")
+    cols = df.columns
+    return df,cols
 
 # 利用上下分位数计算正常值范围，统计异常特征值的数量
 def outlierAnalysis():
