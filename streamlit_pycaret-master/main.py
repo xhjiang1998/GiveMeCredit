@@ -143,7 +143,7 @@ def app_main():
         all_runs = mlflow.search_runs(experiment_ids=0)
     except:
         all_runs = []
-    if len(all_runs) != 0:
+    # if len(all_runs) != 0:
         if st.sidebar.checkbox('预览模型'):
             ml_logs = 'http://kubernetes.docker.internal:5000/  -->开启mlflow，命令行输入:mlflow ui'
             st.markdown(ml_logs)
@@ -165,6 +165,7 @@ def app_main():
                 st.pyplot()
     else:
         st.sidebar.warning('没有找到训练好的模型')
+        st.sidebar.warning(all_runs)
 if __name__ == '__main__':
     app_main()
 

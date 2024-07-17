@@ -47,7 +47,7 @@ class Test:
 
     # 债务比关于收入的经验函数分布
     def debtRatioAboutIncome(self):
-        df = pd.read_csv("data/cs-training.csv")
+        df = pd.read_csv("cs-training.csv")
         df_not_mis_inc = df[df['MonthlyIncome'].notna()]
         df_mis_inc = df[df['MonthlyIncome'].isna()]
         perc1 = [99.0, 99.1, 99.2, 99.3, 99.4, 99.5, 99.6, 99.7, 99.8, 99.9]

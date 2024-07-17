@@ -1,5 +1,10 @@
 import numpy as np
 import pandas as pd
+from OutlierAnalysis import load_data
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.distributions.empirical_distribution import ECDF
 
 
 def read_data():
@@ -19,12 +24,16 @@ def read_data():
 
 
 def visual_data():
-    df = read_data()
-    print('df.head()', '\n', df.head())
-    print('df.columns', '\n', df.columns)
-    print('df.shape', '\n', df.shape)
-    print('df.dtypes', '\n', df.dtypes)
-    df.SeriousDlqin2yrs = (df.SeriousDlqin2yrs).astype('category')
+    """
+    看该数据集的属性
+    :return:
+    """
+    df=read_data()
+    print('df.head()','\n',df.head())
+    print('df.columns','\n',df.columns)
+    print('df.shape','\n',df.shape)
+    print('df.dtypes','\n',df.dtypes)
+    df.SeriousDlqin2yrs=(df.SeriousDlqin2yrs).astype('category')
     df.describe()
     df.info()
     print('df.describe()', '\n', df.describe)

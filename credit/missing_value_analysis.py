@@ -7,7 +7,6 @@ from statsmodels.distributions.empirical_distribution import ECDF
 
 def read_data():
     """
-
     :rtype: 对应的收入为空的dataframe等
     """
     np.set_printoptions(edgeitems=10)
@@ -20,30 +19,33 @@ def read_data():
                 'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
     return df_mis_inc, df_not_mis_inc, varNames
 
-def visualizeECDF( variable, data):
-    df = data[:]  # 入参是一个向量。故[:]： for a (say) NumPy array, it will create a new view to the same data.
+def visualizeECDF(variable, data):
+    """
+    绘制经验分布函数（ECDF）图。
+
+    参数:
+    variable: 字符串，表示数据集中要用于绘制ECDF的变量名。
+    data: 数据集，包含多个变量和对应值的DataFrame。
+
+    返回值:
+    无返回值，该函数直接显示绘制的ECDF图。
+    """
+    # 创建数据的副本，以避免对原始数据集的修改
+    df = data[:]
+
+    # 计算变量的ECDF
     ecdf = ECDF(df[variable])
+
+    # 选择x轴的范围，从最小值到第99.9百分位数
     x = np.linspace(min(df[variable]), np.nanpercentile(df[variable], 99.9))
-    y = ecdf(x) # y关于x的经验分布函数 公式详见https://en.wikipedia.org/wiki/Empirical_distribution_function
+
+    # 计算对应x轴值的ECDF的y值
+    y = ecdf(x)
+
+    # 使用step函数绘制ECDF图
     plt.step(x, y)
 
-def show():
-    df_mis_inc, df_not_mis_inc, varNames=read_data()
-    np.random.seed(100)
-    fig, axes = plt.subplots(nrows=9, ncols=2)  #9行两列的图
-    fig.tight_layout()
-    fig.set_figheight(45)
-    fig.set_figwidth(15)
-    plt.subplots_adjust(hspace=0.8)
-    for i in [1, 3, 5, 7, 9, 11, 13, 15, 17]:
-        ax = plt.subplot(9, 2, i)
-        ax.set_title(varNames[(i - 1) // 2])
-        visualizeECDF(varNames[(i - 1) // 2], df_not_mis_inc)
-        ax = plt.subplot(9, 2, i + 1)
-        ax.set_title(varNames[(i - 1) // 2])
-        visualizeECDF(varNames[(i - 1) // 2], df_mis_inc)
-    # debitRatio在df_not_mis_inc和df_mis_inc中的经验分布函数体现的差距较大
-    # NumberOfDependencies的差距也大
+
 
 # DebtRatio is distributed Overall
 def debitRatio():
@@ -54,10 +56,13 @@ def debitRatio():
         val.append(np.percentile(df['DebtRatio'], i))
     plt.plot(perc, val, 'go-', linewidth=2, markersize=12)
 
-# 显示负债率最高的有收入的人 的 top1%的负债率曲线
-    # 和收入缺失的人的 整体负债率 大致相当
-    # 故用前者的收入来替代后者，就归0吧
+
 def debtRatioAboutIncome():
+    """
+    显示有收入的人的负债率最高的99.0～99.9的debitRatio曲线
+    和收入缺失的人的整体负债率
+    :return:他们x轴不同，但曲线增长的对应的y轴值大致相同
+    """
     df_mis_inc, df_not_mis_inc, var_names = read_data()
     perc1 = [99.0, 99.1, 99.2, 99.3, 99.4, 99.5, 99.6, 99.7, 99.8, 99.9]
     perc2 = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
@@ -73,6 +78,11 @@ def debtRatioAboutIncome():
     plt.show()
 
 def NumberOfDependents():
+    """
+    该函数用于展示两个数据集中"NumberOfDependents"变量的直方图，
+    分别是df_not_mis_inc和df_mis_inc
+    :return:
+    """
     df_mis_inc, df_not_mis_inc, var_names = read_data()
     df_not_mis_inc.hist("NumberOfDependents")
     plt.xticks(np.arange(0,20,1))
@@ -81,14 +91,18 @@ def NumberOfDependents():
     plt.show()
 
 def NumberOfDependents_about_income():
+    """
+    该函数用于分析不同家庭成员数量下的平均月收入情况
+    """
     df_mis_inc, df_not_mis_inc, var_names = read_data()
-    print(df_mis_inc['NumberOfDependents'].value_counts())
-    print(df_not_mis_inc.loc[df_not_mis_inc['NumberOfDependents']==0,["MonthlyIncome"]].mean())
+    print(df_mis_inc['NumberOfDependents'].value_counts()) # 缺失收入的家庭人数的频数统计
+    print(df_not_mis_inc.loc[df_not_mis_inc['NumberOfDependents']==0,["MonthlyIncome"]].mean()) # 含有家庭收入的人口为0的平均收入均值
     print(df_not_mis_inc.loc[df_not_mis_inc['NumberOfDependents']==1,['MonthlyIncome']].mean())
     print(df_not_mis_inc.loc[df_not_mis_inc['NumberOfDependents']>1,["MonthlyIncome"]].mean())
 
 if __name__ == '__main__':
     debtRatioAboutIncome()
+    NumberOfDependents()
     NumberOfDependents_about_income()
 
 
